@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_save_after">
+        <observer name="vendor_order_place_after" instance="SM\Vendors\Observer\OrderPlaceAfter" />
+    </event>
+    <event name="catalog_product_save_before">
+        <observer name="vendor_product_save_before" instance="SM\Vendors\Observer\ProductSaveBefore" />
+    </event>
+    <event name="controller_action_predispatch_checkout_cart_add">
+        <observer name="predispatch_checkout_cart_add" instance="SM\Vendors\Observer\CheckoutCartAddPreDispatch" />
+    </event>
+    <event name="sales_order_status_history_save_before">
+        <observer name="order_status_history_save_before" instance="SM\Vendors\Observer\SalesOrderStatusHistorySaveBefore" />
+    </event>
+    <event name="customer_register_success">
+        <observer name="vendor_customer_register_success" instance="SM\Vendors\Observer\CustomerRegisterSuccess" />
+    </event>
+    <event name="controller_action_predispatch_customer_account_editPost">
+        <observer name="predispatch_customer_account_editPost" instance="SM\Vendors\Observer\CustomerAccountEditPostPreDispatch" />
+    </event>
+    <event name="customer_group_save_before">
+        <observer name="vendor_customer_group_save_before" instance="SM\Vendors\Observer\CustomerGroupSaveBefore" />
+    </event>
+    <event name="customer_group_load_after">
+        <observer name="vendor_customer_group_load_after" instance="SM\Vendors\Observer\CustomerGroupLoadAfter" />
+    </event>
+</config>

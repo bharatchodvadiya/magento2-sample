@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+	<template id="smvendors_email_order_template_new" label="For Vendor: New Order" file="order_new.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_order_template_new_to_vendor" label="For Vendor: New Order Send to Vendor" file="order_new_to_vendor.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_order_template_update" label="For Vendor: Update Order" file="order_update.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_invoice_template_new" label="For Vendor: New Invoice" file="invoice_new.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_invoice_template_update" label="For Vendor: Update Invoice" file="invoice_update.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_shipment_template_new" label="For Vendor: New Shipment" file="shipment_new.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_shipment_template_update" label="For Vendor: Update Shipment" file="shipment_update.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_creditmemo_template_new" label="For Vendor: New Creditmemo" file="creditmemo_new.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_creditmemo_template_update" label="For Vendor: Update Creditmemo" file="creditmemo_update.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_contact_vendor_template" label="For Vendor: Contact Vendor" file="contact_vendor.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="smvendors_email_refer_vendor_template" label="For Vendor: Refer Vendor" file="refer_vendor.html" type="html" module="SM_Vendors" area="frontend"/>
+	
+	<!-- Vendor create account email templates -->
+	<template id="customer_create_account_vendor_email_template" label="New Vendor account" file="vendor_account_new.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="customer_create_account_vendor_email_approved_template" label="For Vendor: New Vendor Approved" file="vendor_account_approved.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="customer_create_account_vendor_email_confirmation_template" label="New Vendor account confirmation key" file="vendor_account_new_confirmation.html" type="html" module="SM_Vendors" area="frontend"/>
+	<template id="customer_create_account_vendor_email_confirmed_template" label="New Vendor account confirmed" file="vendor_account_new_confirmed.html" type="html" module="SM_Vendors" area="frontend"/>
+</config>

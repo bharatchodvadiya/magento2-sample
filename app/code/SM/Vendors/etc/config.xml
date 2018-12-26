@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <smvendors_email>
+            <order>
+                <template_new>smvendors_email_order_template_new</template_new>
+                <template_new_to_vendor>smvendors_email_order_template_new_to_vendor</template_new_to_vendor>
+                <template_update>smvendors_email_order_template_update</template_update>
+            </order>
+            <invoice>
+                <template_new>smvendors_email_invoice_template_new</template_new>
+                <template_update>smvendors_email_invoice_template_update</template_update>
+            </invoice>
+            <shipment>
+                <template_new>smvendors_email_shipment_template_new</template_new>
+                <template_update>smvendors_email_shipment_template_update</template_update>
+            </shipment>
+            <creditmemo>
+                <template_new>smvendors_email_creditmemo_template_new</template_new>
+                <template_update>smvendors_email_creditmemo_template_update</template_update>
+            </creditmemo>
+            <contact_vendor>
+                <template>smvendors_email_contact_vendor_template</template>
+            </contact_vendor>
+            <refer_vendor>
+                <template>smvendors_email_refer_vendor_template</template>
+            </refer_vendor>
+        </smvendors_email>
+        <customer>
+            <create_account>
+                <vendor_email_template>customer_create_account_vendor_email_template</vendor_email_template>
+                <vendor_email_approved_template>customer_create_account_vendor_email_approved_template</vendor_email_approved_template>
+                <vendor_email_confirmation_template>customer_create_account_vendor_email_confirmation_template</vendor_email_confirmation_template>
+                <vendor_email_confirmed_template>customer_create_account_vendor_email_confirmed_template</vendor_email_confirmed_template>
+            </create_account>
+        </customer>
+
+        <carriers>
+            <vendorflatrate>
+                <active>1</active>
+                <sallowspecific>0</sallowspecific>
+                <model>SM\Vendors\Model\Carrier\FlatShipRate</model>
+                <name>Fixed</name>
+                <price>5.00</price>
+                <title>Flat Rate</title>
+                <type>I</type>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <handling_type>F</handling_type>
+            </vendorflatrate>
+            <vendororderrate>
+                <active>1</active>
+                <sallowspecific>0</sallowspecific>
+                <model>SM\Vendors\Model\Carrier\OrderShipRate</model>
+                <name>Fixed</name>
+                <price>5.00</price>
+                <title>Order Rate</title>
+                <type>I</type>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <handling_type>F</handling_type>
+            </vendororderrate>
+            <dropshipping>
+				<active>1</active>
+				<allowed_methods>dropship</allowed_methods>
+				<methods>dropship</methods>
+				<sallowspecific>0</sallowspecific>
+				<model>SM\Vendors\Model\Carrier\DropShip</model>
+				<name>Drop Shipping Method</name>
+				<title>Drop Shipping</title>
+				<specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+				<default_shipping_product_fee>10</default_shipping_product_fee>
+			</dropshipping>
+        </carriers>
+    </default>
+</config>

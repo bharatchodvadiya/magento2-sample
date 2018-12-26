@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="SM_Vendors::top_vendors" title="Vendors" translate="title" sortOrder="40">
+                    <resource id="SM_Vendors::vendors_manager" title="Vendors" sortOrder="10" />
+                    <resource id="SM_Vendors::shipping_methods" title="Shipping Methods" sortOrder="11" />
+                    <resource id="SM_Vendors::vendors_page" title="Page" sortOrder="12" />
+                    <resource id="SM_Vendors::vendors_banner" title="Banner" sortOrder="13" />
+                    <resource id="SM_Vendors::vendors_representative" title="Sales Representatives" sortOrder="14" />
+                    <resource id="SM_Vendors::vendors_profile" title="Profile" sortOrder="15" />
+                    <resource id="SM_Vendors::vendors_orders"  title="Orders" translate="title" sortOrder="16">
+                        <resource id="SM_Vendors::actions" title="Actions" translate="title" sortOrder="10">
+                            <resource id="SM_Vendors::create" title="Create" translate="title" sortOrder="10" />
+                            <resource id="SM_Vendors::actions_view" title="View" translate="title" sortOrder="20" />
+                            <resource id="SM_Vendors::email" title="Send Order Email" translate="title" sortOrder="30" />
+                            <resource id="SM_Vendors::reorder" title="Reorder" translate="title" sortOrder="40" />
+                            <resource id="SM_Vendors::actions_edit" title="Edit" translate="title" sortOrder="50" />
+                            <resource id="SM_Vendors::cancel" title="Cancel" translate="title" sortOrder="60" />
+                            <resource id="SM_Vendors::review_payment" title="Accept or Deny Payment" translate="title" sortOrder="70" />
+                            <resource id="SM_Vendors::capture" title="Capture" translate="title" sortOrder="80" />
+                            <resource id="SM_Vendors::invoice" title="Invoice" translate="title" sortOrder="90" />
+                            <resource id="SM_Vendors::creditmemo" title="Credit Memos" translate="title" sortOrder="100" />
+                            <resource id="SM_Vendors::ship" title="Ship" translate="title" sortOrder="130" />
+                            <resource id="SM_Vendors::comment" title="Comment" translate="title" sortOrder="140" />
+                            <resource id="SM_Vendors::emails" title="Send Sales Emails" translate="title" sortOrder="150" />
+                        </resource>
+                    </resource>
+                    <resource id="SM_Vendors::vendors_invoices" title="Invoices" sortOrder="17" />
+                    <resource id="SM_Vendors::vendors_shipments" title="Shipments" sortOrder="18" />
+                    <resource id="SM_Vendors::vendors_creditmemos" title="Credit Memos" sortOrder="19" />
+                </resource>
+                <resource id="Magento_Reports::report" title="Reports" translate="title" sortOrder="70">
+                    <resource id="SM_Vendors::reports" title="Vendor Reports" translate="title" sortOrder="90">
+                        <resource id="SM_Vendors::vendors_reports" title="Orders Report" sortOrder="10" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="SM_Vendors::smvendors_config" title="Vendors - General" translate="title" sortOrder="300" />
+                            <resource id="SM_Vendors::smvendors_email_config" title="Vendors Emails" translate="title" sortOrder="301" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

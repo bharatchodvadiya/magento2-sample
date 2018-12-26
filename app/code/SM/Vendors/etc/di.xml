@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Shipping\Model\Shipping" type="SM\Vendors\Model\Rewrite\Shipping\Shipping" />
+    <preference for="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider" type="SM\Vendors\Ui\DataProvider\Product\AddVendorFilterToCollection"/>
+    <preference for="Magento\Customer\Block\Adminhtml\Edit\OrderButton" type="SM\Vendors\Block\Rewrite\Adminhtml\Customer\Edit\OrderButton"/>
+    <preference for="Magento\Customer\Block\Adminhtml\Edit\DeleteButton" type="SM\Vendors\Block\Rewrite\Adminhtml\Customer\Edit\DeleteButton"/>
+    <preference for="Magento\Customer\Block\Adminhtml\Group\Edit\Form" type="SM\Vendors\Block\Rewrite\Adminhtml\Customer\Group\Edit\Form"/>
+    <preference for="Magento\CatalogRule\Block\Adminhtml\Promo\Catalog\Edit\Tab\Conditions" type="SM\Vendors\Block\Rewrite\Adminhtml\Promo\Catalog\Edit\Tab\Conditions"/>
+    <preference for="Magento\SalesRule\Block\Adminhtml\Promo\Quote\Edit\Tab\Conditions" type="SM\Vendors\Block\Rewrite\Adminhtml\Promo\Quote\Edit\Tab\Conditions"/>
+    <preference for="Magento\Backend\Block\Dashboard\Sales" type="SM\Vendors\Block\Rewrite\Adminhtml\Dashboard\Sales"/>
+    <preference for="Magento\Backend\Block\Dashboard\Totals" type="SM\Vendors\Block\Rewrite\Adminhtml\Dashboard\Totals"/>
+    <preference for="Magento\Backend\Block\Dashboard\Orders\Grid" type="SM\Vendors\Block\Rewrite\Adminhtml\Dashboard\Orders\Grid"/>
+    <preference for="Magento\Backend\Block\Dashboard\Tab\Customers\Most" type="SM\Vendors\Block\Rewrite\Adminhtml\Dashboard\Tab\Customers\Most"/>
+    <preference for="Magento\Backend\Block\Dashboard\Tab\Customers\Newest" type="SM\Vendors\Block\Rewrite\Adminhtml\Dashboard\Tab\Customers\Newest"/>
+    <preference for="Magento\Backend\Block\Dashboard\Tab\Products\Ordered" type="SM\Vendors\Block\Rewrite\Adminhtml\Dashboard\Tab\Products\Ordered"/>
+    <preference for="Magento\Backend\Block\Dashboard\Tab\Products\Viewed" type="SM\Vendors\Block\Rewrite\Adminhtml\Dashboard\Tab\Products\Viewed"/>
+</config>
