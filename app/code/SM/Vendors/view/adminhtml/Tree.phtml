@@ -1,0 +1,78 @@
+<div class="categories-side-col">
+    <div class="content-header">
+        <h3 class="icon-head head-categories"><?php echo __('Categories') ?></h3>
+            <?php echo $this->getAddRootButtonHtml() ?><br /><br />
+            <?php echo $this->getAddSubButtonHtml() ?>
+    </div>
+    <br />
+    <div class="tree-actions">
+        <a href="#" id="collapseAllNodes">
+        <?php echo __('Collapse All'); ?></a> <span class="separator">|</span> <a href="#" id="expandAllNodes"><?php echo __('Expand All'); ?></a>
+    </div>
+    <div class="tree-holder">
+        <div id="tree-div" style="width:100%; overflow:auto;"></div>
+    </div>
+</div>
+<div class="loading-mask" data-role="loader" style="display: none;">
+    <div class="popup popup-loading">
+        <div class="popup-inner">
+            <img alt="Loading..." src="<?php echo $this->getBaseUrl(); ?>pub/static/adminhtml/Magento/backend/en_US/images/loader-2.gif">Please wait...
+        </div>
+    </div>
+</div>
+<script>
+require(['jquery', 'kendo.all.min'], function($) {
+    $(document).ready(function() {
+        function onSelect(entityData) {
+            var treeview = $("#tree-div").data("kendoTreeView");
+            var deliveryItem = treeview.dataItem(entityData.node);
+            var deliveryareaName = deliveryItem.text;
+            var deliveryId = deliveryItem.id;
+            jQuery('.loading-mask').css('display', 'block');
+            setTimeout(function() {
+                jQuery('.loading-mask').css('display', 'none');
+            }, 150);
+            jQuery('#deliveryarea_name').val(deliveryareaName);
+            jQuery('#deliveryarea_id').val(deliveryId);
+            jQuery('#deliveryarea_is_active').val('1');
+            var deleteUrl = '<?php echo $this->getDeleteUrl(); ?>';
+            var deliveryDelete = "deleteConfirm('Are you sure you want to do this?', '"+ deleteUrl + "entity_id/"+deliveryId +"')";
+            jQuery('#delete').attr('onclick', deliveryDelete);
+        }
+        var treeview = $("#tree-div").kendoTreeView({
+            dataSource: {
+                data: <?php echo $this->getTreeJson(); ?>
+            },
+            select: onSelect,
+            loadOnDemand: false
+        }).data("kendoTreeView");
+
+        $("#expandAllNodes").click(function() {
+            treeview.expand(".k-item");
+        });
+
+        $("#collapseAllNodes").click(function() {
+            treeview.collapse(".k-item");
+        });
+        $("#add_root_deliveryarea_button").click(function() {
+            jQuery('.loading-mask').css('display', 'block');
+            setTimeout(function() {
+                jQuery('.loading-mask').css('display', 'none');
+            }, 100);
+            jQuery('#deliveryarea_name').val('');
+            jQuery('#deliveryarea_id').val('');
+            jQuery('#deliveryarea_parent_id').val('0');
+        });
+        $("#add_subdeliveryarea_button").click(function() {
+            var deliveryId = jQuery('#deliveryarea_id').val();
+            jQuery('#deliveryarea_parent_id').val(deliveryId);
+            jQuery('.loading-mask').css('display', 'block');
+            setTimeout(function() {
+                jQuery('.loading-mask').css('display', 'none');
+            }, 100);
+            jQuery('#deliveryarea_name').val('');
+            jQuery('#deliveryarea_id').val('');
+        });
+    });
+});
+</script>
