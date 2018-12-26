@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+    	<referenceContainer name="content">
+    		<block class="SM\Vendors\Block\Catalog\Category\View" name="vendors_products_index" template="SM_Vendors::catalog/product/vendor.phtml">
+    			<block class="SM\Vendors\Block\Catalog\Product\Lists" name="vendor_product_list" template="SM_Vendors::catalog/product/list.phtml">
+    				<block class="Magento\Framework\View\Element\Template" name="product_list_title" template="SM_Vendors::catalog/product/list/title.phtml" />
+    				<block class="Magento\Framework\View\Element\Template" name="product_customlists_dropdown" template="SM_CustomList::customlist/product/customlists_dropdown.phtml" />
+    				<block class="Magento\Framework\View\Element\Template" name="product_customlists_dropdown_effect" template="SM_CustomList::customlist/product/customlists_dropdown_effect.phtml" />
+    				<block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
+    					<block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+    				</block>
+    				<action method="setToolbarBlockName">
+                        <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                    </action>
+    			</block>
+    		</block>
+    	</referenceContainer>
+    </body>
+</page>
