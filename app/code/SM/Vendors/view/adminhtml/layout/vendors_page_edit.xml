@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="SM\Vendors\Block\Adminhtml\Page\Edit\Tabs"
+                name="page_edit_tabs">
+                <block class="SM\Vendors\Block\Adminhtml\Page\Edit\Tab\Main" name="page_edit_tab_main"/>
+                <block class="SM\Vendors\Block\Adminhtml\Page\Edit\Tab\Content" name="page_edit_tab_content"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">page_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">content_section</argument>
+                    <argument name="block" xsi:type="string">page_edit_tab_content</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="SM\Vendors\Block\Adminhtml\Page\Edit"
+                name="page_edit"/>
+        </referenceContainer>
+    </body>
+</page>

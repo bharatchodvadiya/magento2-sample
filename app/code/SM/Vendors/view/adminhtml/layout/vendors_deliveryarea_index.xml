@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <update handle="formkey"/>
+    <head>
+        <script src="SM_Vendors::css/kendoui/styles/kendo.common.min.css"/>
+        <script src="SM_Vendors::css/kendoui/styles/kendo.default.min.css"/>
+        <script src="SM_Vendors::js/kendoui/js/kendo.all.min.js"/>
+        <script src="SM_Vendors::css/tabGrid.css"/>
+    </head>
+    <body>
+        <referenceContainer name="left">
+            <block class="SM\Vendors\Block\Adminhtml\Deliveryarea\Tree" name="vendors_deliveryarea" template="SM_Vendors::deliveryarea/Tree.phtml" />
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="SM\Vendors\Block\Adminhtml\Deliveryarea\Edit"
+                name="deliveryarea_edit"/>
+            <block class="SM\Vendors\Block\Adminhtml\Deliveryarea\Edit\Tabs"
+                name="deliveryarea_edit_tabs">
+                <block class="SM\Vendors\Block\Adminhtml\Deliveryarea\Edit\Tab\Main" name="deliveryarea_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">deliveryarea_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">vendor_section</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Deliveryarea Newsletter Template</item>
+                        <item name="title" xsi:type="string">Deliveryarea Newsletter Template</item>
+                        <item name="url" xsi:type="helper" helper="SM\Vendors\Helper\Data::getDeliveryGridUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

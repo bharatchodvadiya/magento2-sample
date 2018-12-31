@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="SM\Vendors\Block\Adminhtml\Shipping\Edit\Tabs"
+                name="shipping_edit_tabs">
+                <block class="SM\Vendors\Block\Adminhtml\Shipping\Edit\Tab\FlatRate" name="shipping_edit_tab_flatrate"/>
+                <block class="SM\Vendors\Block\Adminhtml\Shipping\Edit\Tab\OrderRate" name="shipping_edit_tab_orderrate"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">flatrate_section</argument>
+                    <argument name="block" xsi:type="string">shipping_edit_tab_flatrate</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">orderrate_section</argument>
+                    <argument name="block" xsi:type="string">shipping_edit_tab_orderrate</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="SM\Vendors\Block\Adminhtml\Shipping\Edit"
+                name="shipping_edit" />
+        </referenceContainer>
+    </body>
+</page>

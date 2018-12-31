@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="formkey"/>
+    <update handle="vendors_order_item_price"/>
+    <body>
+        <referenceContainer name="left">
+            <block class="SM\Vendors\Block\Adminhtml\Order\View\Tabs" name="order_view_tabs">
+                <block class="Magento\Sales\Block\Adminhtml\Order\View\Tab\Info" name="order_view_tab_info" template="order/view/tab/info.phtml">
+                    <block class="Magento\Sales\Block\Adminhtml\Order\View\Info" name="order_info" template="order/view/info.phtml"/>
+                    <block class="Magento\Sales\Block\Adminhtml\Order\AbstractOrder" name="order_shipping_view" template="Magento_Shipping::order/view/info.phtml"/>
+                    <block class="SM\Vendors\Block\Adminhtml\Order\View\Items" name="order_items" template="order/view/items.phtml">
+                        <arguments>
+                            <argument name="columns" xsi:type="array">
+                                <item name="product" xsi:type="string" translate="true">Product</item>
+                                <item name="status" xsi:type="string" translate="true">Item Status</item>
+                                <item name="price-original" xsi:type="string" translate="true">Original Price</item>
+                                <item name="price" xsi:type="string" translate="true">Price</item>
+                                <item name="ordered-qty" xsi:type="string" translate="true">Qty</item>
+                                <item name="subtotal" xsi:type="string" translate="true">Subtotal</item>
+                                <item name="tax-amount" xsi:type="string" translate="true">Tax Amount</item>
+                                <item name="tax-percent" xsi:type="string" translate="true">Tax Percent</item>
+                                <item name="discont" xsi:type="string" translate="true">Discount Amount</item>
+                                <item name="total" xsi:type="string" translate="true">Row Total</item>
+                            </argument>
+                        </arguments>
+                        <block class="Magento\Sales\Block\Adminhtml\Order\View\Items\Renderer\DefaultRenderer" as="default" template="order/view/items/renderer/default.phtml">
+                        <arguments>
+                            <argument name="columns" xsi:type="array">
+                                <item name="product" xsi:type="string" translate="false">col-product</item>
+                                <item name="status" xsi:type="string" translate="false">col-status</item>
+                                <item name="price-original" xsi:type="string" translate="false">col-price-original</item>
+                                <item name="price" xsi:type="string" translate="false">col-price</item>
+                                <item name="qty" xsi:type="string" translate="false">col-ordered-qty</item>
+                                <item name="subtotal" xsi:type="string" translate="false">col-subtotal</item>
+                                <item name="tax-amount" xsi:type="string" translate="false">col-tax-amount</item>
+                                <item name="tax-percent" xsi:type="string" translate="false">col-tax-percent</item>
+                                <item name="discont" xsi:type="string" translate="false">col-discont</item>
+                                <item name="total" xsi:type="string" translate="false">col-total</item>
+                            </argument>
+                        </arguments>
+                        </block>
+                        <block class="Magento\Sales\Block\Adminhtml\Items\Column\Qty" name="column_qty" template="items/column/qty.phtml" group="column"/>
+                        <block class="Magento\Sales\Block\Adminhtml\Items\Column\Name" name="column_name" template="items/column/name.phtml" group="column"/>
+                        <block class="Magento\Framework\View\Element\Text\ListText" name="order_item_extra_info"/>
+                    </block>
+                    <container name="payment_additional_info" htmlTag="div" htmlClass="order-payment-additional" />
+                    <block class="Magento\Sales\Block\Adminhtml\Order\Payment" name="order_payment"/>
+                    <block class="SM\Vendors\Block\Adminhtml\Order\View\History" name="order_history" template="order/view/history.phtml"/>
+                    <block class="Magento\Backend\Block\Template" name="gift_options" template="Magento_Sales::order/giftoptions.phtml">
+                        <block class="Magento\Sales\Block\Adminhtml\Order\View\Giftmessage" name="order_giftmessage" template="order/view/giftmessage.phtml"/>
+                    </block>
+                    <block class="Magento\Sales\Block\Adminhtml\Order\Totals" name="order_totals" template="order/totals.phtml">
+                        <block class="Magento\Sales\Block\Adminhtml\Order\Totals\Tax" name="tax" template="order/totals/tax.phtml"/>
+                    </block>
+                </block>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">info_section</argument>
+                    <argument name="block" xsi:type="string">order_view_tab_info</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">invoices_section</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Invoices</item>
+                        <item name="title" xsi:type="string">Order Invoices</item>
+                        <item name="url" xsi:type="helper" helper="SM\Vendors\Helper\Data::getInvoiceGridUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">creditmemos_section</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Credit Memos</item>
+                        <item name="title" xsi:type="string">Order Credit Memos</item>
+                        <item name="url" xsi:type="helper" helper="SM\Vendors\Helper\Data::getCreditmemoGridUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">shipments_section</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Shipments</item>
+                        <item name="title" xsi:type="string">Order Shipments</item>
+                        <item name="url" xsi:type="helper" helper="SM\Vendors\Helper\Data::getShipmentGridUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">history_section</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Comments History</item>
+                        <item name="title" xsi:type="string">Order History</item>
+                        <item name="url" xsi:type="helper" helper="SM\Vendors\Helper\Data::getOrderHistoryUrl"></item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="SM\Vendors\Block\Adminhtml\Order\View" name="order_view"/>
+        </referenceContainer>
+    </body>
+</page>

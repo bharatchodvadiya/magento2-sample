@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_form">
+            <block class="SM\Vendors\Block\Rewrite\Adminhtml\Customer\Edit\Tab\Representative" name="customer_edit_tab_representative">
+                <action method="setTabLabel">
+                    <argument name="label" xsi:type="string">Sales Representative</argument>
+                </action>
+            </block>
+            <block class="SM\Vendors\Block\Rewrite\Adminhtml\Customer\Edit\Tab\Group" name="customer_edit_tab_group">
+                <action method="setTabLabel">
+                    <argument name="label" xsi:type="string">Customer Group</argument>
+                </action>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
