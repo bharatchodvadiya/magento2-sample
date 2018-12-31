@@ -1,0 +1,47 @@
+.vendor-invite {
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 20px;
+    padding-top: 8px;
+    text-align: center;
+}
+.vender_brand {
+    display: block;
+    padding-top: 4px;
+    border-top: solid 1px #ddd;
+    margin-top: 8px;
+    text-align: left;
+    list-style: none;
+}
+.vender_brand li {
+    display: inline;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0 10px;
+    line-height: 32px;
+}
+.vender_brand a {
+    color: #1e7ec8;
+    text-decoration: underline;
+}
+.vendor-char-group ul {
+    float: left;
+    list-style: none;
+}
+.vendor-char-group ul li.vendor-groups-col {
+    width: 210px;
+    padding-right: 20px;
+    padding-bottom: 25px;
+    float: left;
+}
+.vendor-char-group ul ul {
+    width: 100%;
+    float: none;
+    list-style: none;
+}
+.vendor-char-group ul ul a {
+    font-size: 12px;
+    color: #666;
+    padding: 2px 0 2px 12px;
+    display: block;
+    text-decoration: underline;
+}
