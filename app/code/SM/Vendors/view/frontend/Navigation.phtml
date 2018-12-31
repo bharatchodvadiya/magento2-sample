@@ -1,0 +1,47 @@
+<style type="text/css">
+.page-title-wrapper {
+	display: none;
+}
+</style>
+<div class="page-title">
+	<h2><?php echo __('All Vendors') ?><span></span></h2>
+</div>
+<div class="vendor-invite">
+	<h3><?php echo __('Are your suppliers not on the list?') ?></h3>
+	<button type="button" class="button"><span><?php echo __('Invite them to join SOHYPER') ?></span></button>
+	<div style="clear:both"></div>
+	<ul class="vender_brand">
+		<li><a href="#other">#</a></li>
+		<?php foreach (range('A', 'Z') as $character): ?>
+		<li><a href="#<?php echo $character ?>"><?php echo $character ?></a></li>
+		<?php endforeach; ?>
+	</ul>
+</div>
+<div class="vendor-char-group">
+	<?php $groupsColumns = $this->getSortedVendorGroupsColumns();?>
+	<ul>
+		<?php foreach ($groupsColumns as $col => $groups): ?>
+		<li class="vendor-groups-col" id="vendor-groups-col<?php echo $col ?>">
+			<ul>
+				<?php foreach ($groups as $groupName => $vendors): ?>
+				<li class="vendor-group-container">
+					<div class="char-title">
+						<a class="vendor-title"><h6><?php echo $groupName ?></h6></a>
+						<a name="<?php echo $groupName == '#' ? 'other' : strtoupper($groupName) ?>" />
+					</div>
+					
+					<ul class="vendor-group">
+						<?php foreach ($vendors as $vendor): ?>
+							<?php if ($this->getProductCountByVendor($vendor['vendor_id']) > 0): ?>
+
+								<li><a href="<?php echo $this->getBaseUrl().$vendor['vendor_slug'] ?>"><?php echo $vendor['vendor_name'] ?></a></li>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					</ul>
+				</li>
+				<?php endforeach; ?>
+			</ul>
+		</li>
+		<?php endforeach; ?>
+	</ul>
+</div>
