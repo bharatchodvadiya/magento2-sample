@@ -8,4 +8,4 @@ rm -rf var/cache/*
 rm -rf var/page_cache/*
 php bin/magento indexer:reindex
 php bin/magento setup:upgrade
-bin/magento setup:static-content:deploy
+php bin/magento setup:static-content:deploy
